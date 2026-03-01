@@ -1,22 +1,31 @@
 /*
 Adam Mashhadani
 3/1/2026
-Project: Oops! Shall We Try Again Lab
+Project: Well That's Just Prime Lab
 */
 
 #include <iostream>
-#include "validate.h"
+#include "Factorizer.h"
+using namespace std;
 
-int main()
-{
-    int result = getValidatedInt(
-        0, 100,
-        "Please enter a value (0-100):",
-        "Your value is invalid"
-    );
+int main() {
+    Factorizer f;
+    int num;
 
-    std::cout << "The value chosen by the user is "
-        << result << std::endl;
+    cout << "Enter an integer: ";
+    cin >> num;
+
+    vector<int> factors = f.getPrimeFactors(num);
+
+    if (factors.empty()) {
+        cout << "No prime factors." << endl;
+    }
+    else {
+        cout << "Prime factors: ";
+        for (int x : factors)
+            cout << x << " ";
+        cout << endl;
+    }
 
     return 0;
 }
